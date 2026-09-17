@@ -1,0 +1,385 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://realpage.local/ai-marketplace/contracts/discovery-response.schema.json",
+  "title": "Discovery Response",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/__schema0"
+    },
+    {
+      "$ref": "#/$defs/__schema11"
+    },
+    {
+      "$ref": "#/$defs/__schema12"
+    },
+    {
+      "$ref": "#/$defs/__schema13"
+    }
+  ],
+  "$defs": {
+    "__schema0": {
+      "type": "object",
+      "properties": {
+        "query_id": {
+          "$ref": "#/$defs/__schema1"
+        },
+        "mode": {
+          "$ref": "#/$defs/__schema2"
+        },
+        "interpreted_intent": {
+          "$ref": "#/$defs/__schema3"
+        },
+        "fallback_used": {
+          "$ref": "#/$defs/__schema5"
+        },
+        "fallback_reason": {
+          "$ref": "#/$defs/__schema6"
+        },
+        "status": {
+          "type": "string",
+          "const": "matches"
+        },
+        "guardrail": {
+          "$ref": "#/$defs/__schema7"
+        },
+        "candidates": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema8"
+          }
+        }
+      },
+      "required": [
+        "query_id",
+        "mode",
+        "interpreted_intent",
+        "fallback_used",
+        "status",
+        "guardrail",
+        "candidates"
+      ],
+      "additionalProperties": false
+    },
+    "__schema1": {
+      "type": "string",
+      "pattern": "^query_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Discovery query identifier"
+    },
+    "__schema2": {
+      "type": "string",
+      "enum": [
+        "deterministic",
+        "hybrid",
+        "ai_assisted"
+      ]
+    },
+    "__schema3": {
+      "type": "object",
+      "properties": {
+        "intents": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema4"
+          }
+        }
+      },
+      "required": [
+        "intents"
+      ],
+      "additionalProperties": false
+    },
+    "__schema4": {
+      "type": "object",
+      "properties": {
+        "goal": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "domain": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "desired_output": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        }
+      },
+      "required": [
+        "goal",
+        "constraints"
+      ],
+      "additionalProperties": false
+    },
+    "__schema5": {
+      "type": "boolean"
+    },
+    "__schema6": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "__schema7": {
+      "type": "object",
+      "properties": {
+        "triggered": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "required": [
+        "triggered"
+      ],
+      "additionalProperties": false
+    },
+    "__schema8": {
+      "type": "object",
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "pattern": "^asset_[a-z0-9]+(?:_[a-z0-9]+)*$",
+          "description": "Stable asset identifier"
+        },
+        "asset_version_id": {
+          "type": "string",
+          "pattern": "^av_[a-z0-9]+(?:_[a-z0-9]+)*$",
+          "description": "Immutable asset-version identifier"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[A-Za-z-][0-9A-Za-z-]*))*))?(?:\\+([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?$"
+        },
+        "match_band": {
+          "type": "string",
+          "enum": [
+            "strong_match",
+            "possible_match"
+          ]
+        },
+        "ranking_score_internal": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "scoring_method": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "matched_fields": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema9"
+          }
+        },
+        "rationale": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema10"
+          }
+        }
+      },
+      "required": [
+        "asset_id",
+        "asset_version_id",
+        "version",
+        "match_band",
+        "scoring_method",
+        "matched_fields",
+        "rationale"
+      ],
+      "additionalProperties": false
+    },
+    "__schema9": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema10": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema11": {
+      "type": "object",
+      "properties": {
+        "query_id": {
+          "$ref": "#/$defs/__schema1"
+        },
+        "mode": {
+          "$ref": "#/$defs/__schema2"
+        },
+        "interpreted_intent": {
+          "$ref": "#/$defs/__schema3"
+        },
+        "fallback_used": {
+          "$ref": "#/$defs/__schema5"
+        },
+        "fallback_reason": {
+          "$ref": "#/$defs/__schema6"
+        },
+        "status": {
+          "type": "string",
+          "const": "clarification_required"
+        },
+        "clarification_question": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "guardrail": {
+          "$ref": "#/$defs/__schema7"
+        },
+        "candidates": {
+          "maxItems": 0,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema8"
+          }
+        }
+      },
+      "required": [
+        "query_id",
+        "mode",
+        "interpreted_intent",
+        "fallback_used",
+        "status",
+        "clarification_question",
+        "guardrail",
+        "candidates"
+      ],
+      "additionalProperties": false
+    },
+    "__schema12": {
+      "type": "object",
+      "properties": {
+        "query_id": {
+          "$ref": "#/$defs/__schema1"
+        },
+        "mode": {
+          "$ref": "#/$defs/__schema2"
+        },
+        "interpreted_intent": {
+          "$ref": "#/$defs/__schema3"
+        },
+        "fallback_used": {
+          "$ref": "#/$defs/__schema5"
+        },
+        "fallback_reason": {
+          "$ref": "#/$defs/__schema6"
+        },
+        "status": {
+          "type": "string",
+          "const": "no_match"
+        },
+        "no_match_reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "guardrail": {
+          "$ref": "#/$defs/__schema7"
+        },
+        "candidates": {
+          "maxItems": 0,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema8"
+          }
+        }
+      },
+      "required": [
+        "query_id",
+        "mode",
+        "interpreted_intent",
+        "fallback_used",
+        "status",
+        "no_match_reason",
+        "guardrail",
+        "candidates"
+      ],
+      "additionalProperties": false
+    },
+    "__schema13": {
+      "type": "object",
+      "properties": {
+        "query_id": {
+          "$ref": "#/$defs/__schema1"
+        },
+        "mode": {
+          "$ref": "#/$defs/__schema2"
+        },
+        "interpreted_intent": {
+          "$ref": "#/$defs/__schema3"
+        },
+        "fallback_used": {
+          "$ref": "#/$defs/__schema5"
+        },
+        "fallback_reason": {
+          "$ref": "#/$defs/__schema6"
+        },
+        "status": {
+          "type": "string",
+          "const": "guardrail"
+        },
+        "guardrail": {
+          "type": "object",
+          "properties": {
+            "triggered": {
+              "type": "boolean",
+              "const": true
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "human_review_point": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            }
+          },
+          "required": [
+            "triggered",
+            "reason",
+            "human_review_point"
+          ],
+          "additionalProperties": false
+        },
+        "candidates": {
+          "maxItems": 0,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema8"
+          }
+        }
+      },
+      "required": [
+        "query_id",
+        "mode",
+        "interpreted_intent",
+        "fallback_used",
+        "status",
+        "guardrail",
+        "candidates"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "x-zod-runtime-refinements": [
+    "fallback_reason is present exactly when fallback_used is true"
+  ]
+}

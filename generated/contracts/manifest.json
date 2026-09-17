@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "target": "https://json-schema.org/draft/2020-12/schema",
+  "schemas": [
+    {
+      "name": "asset",
+      "file": "asset.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/asset.schema.json"
+    },
+    {
+      "name": "asset-version-content",
+      "file": "asset-version-content.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/asset-version-content.schema.json"
+    },
+    {
+      "name": "asset-version-governance",
+      "file": "asset-version-governance.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/asset-version-governance.schema.json"
+    },
+    {
+      "name": "asset-version",
+      "file": "asset-version.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/asset-version.schema.json"
+    },
+    {
+      "name": "asset-version-record",
+      "file": "asset-version-record.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/asset-version-record.schema.json"
+    },
+    {
+      "name": "test-scenario",
+      "file": "test-scenario.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/test-scenario.schema.json"
+    },
+    {
+      "name": "json-schema-document",
+      "file": "json-schema-document.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/json-schema-document.schema.json"
+    },
+    {
+      "name": "discovery-request",
+      "file": "discovery-request.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/discovery-request.schema.json"
+    },
+    {
+      "name": "discovery-response",
+      "file": "discovery-response.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/discovery-response.schema.json"
+    },
+    {
+      "name": "execution-request",
+      "file": "execution-request.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/execution-request.schema.json"
+    },
+    {
+      "name": "execution-record",
+      "file": "execution-record.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/execution-record.schema.json"
+    },
+    {
+      "name": "executor-manifest",
+      "file": "executor-manifest.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/executor-manifest.schema.json"
+    },
+    {
+      "name": "evidence",
+      "file": "evidence.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/evidence.schema.json"
+    },
+    {
+      "name": "lifecycle-event",
+      "file": "lifecycle-event.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/lifecycle-event.schema.json"
+    },
+    {
+      "name": "admin-catalog-version-response",
+      "file": "admin-catalog-version-response.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/admin-catalog-version-response.schema.json"
+    },
+    {
+      "name": "catalog-list-response",
+      "file": "catalog-list-response.schema.json",
+      "id": "https://realpage.local/ai-marketplace/contracts/catalog-list-response.schema.json"
+    }
+  ]
+}

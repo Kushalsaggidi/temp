@@ -1,0 +1,307 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://realpage.local/ai-marketplace/contracts/execution-record.schema.json",
+  "title": "Execution Record",
+  "type": "object",
+  "properties": {
+    "execution_id": {
+      "$ref": "#/$defs/__schema0"
+    },
+    "asset_id": {
+      "$ref": "#/$defs/__schema1"
+    },
+    "asset_version_id": {
+      "$ref": "#/$defs/__schema2"
+    },
+    "asset_version": {
+      "$ref": "#/$defs/__schema3"
+    },
+    "executor_key": {
+      "$ref": "#/$defs/__schema4"
+    },
+    "definition_digest": {
+      "$ref": "#/$defs/__schema5"
+    },
+    "purpose": {
+      "$ref": "#/$defs/__schema7"
+    },
+    "scenario_label": {
+      "$ref": "#/$defs/__schema8"
+    },
+    "status": {
+      "$ref": "#/$defs/__schema9"
+    },
+    "validated_input": {
+      "$ref": "#/$defs/__schema10"
+    },
+    "output": {
+      "$ref": "#/$defs/__schema12"
+    },
+    "validation_results": {
+      "$ref": "#/$defs/__schema13"
+    },
+    "error": {
+      "$ref": "#/$defs/__schema14"
+    },
+    "rejection_reason": {
+      "$ref": "#/$defs/__schema16"
+    },
+    "execution_mode": {
+      "$ref": "#/$defs/__schema17"
+    },
+    "model_or_config": {
+      "$ref": "#/$defs/__schema18"
+    },
+    "started_at": {
+      "$ref": "#/$defs/__schema19"
+    },
+    "completed_at": {
+      "$ref": "#/$defs/__schema20"
+    }
+  },
+  "required": [
+    "execution_id",
+    "asset_id",
+    "asset_version_id",
+    "asset_version",
+    "purpose",
+    "status",
+    "validation_results",
+    "execution_mode",
+    "started_at",
+    "completed_at"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "pattern": "^execution_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Execution identifier"
+    },
+    "__schema1": {
+      "type": "string",
+      "pattern": "^asset_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Stable asset identifier"
+    },
+    "__schema2": {
+      "type": "string",
+      "pattern": "^av_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Immutable asset-version identifier"
+    },
+    "__schema3": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[A-Za-z-][0-9A-Za-z-]*))*))?(?:\\+([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?$"
+    },
+    "__schema4": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "__schema5": {
+      "$ref": "#/$defs/__schema6"
+    },
+    "__schema6": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "__schema7": {
+      "type": "string",
+      "enum": [
+        "user_run",
+        "prepublication_test"
+      ]
+    },
+    "__schema8": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "__schema9": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "running",
+        "succeeded",
+        "failed",
+        "invalid",
+        "blocked"
+      ]
+    },
+    "__schema10": {
+      "$ref": "#/$defs/__schema11"
+    },
+    "__schema11": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema11"
+          }
+        },
+        {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/__schema11"
+          }
+        }
+      ]
+    },
+    "__schema12": {
+      "$ref": "#/$defs/__schema11"
+    },
+    "__schema13": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string",
+            "enum": [
+              "input",
+              "output",
+              "policy",
+              "definition_digest"
+            ]
+          },
+          "valid": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "stage",
+          "valid",
+          "code",
+          "message"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "__schema14": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "details": {
+          "$ref": "#/$defs/__schema15"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "retryable"
+      ],
+      "additionalProperties": false
+    },
+    "__schema15": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema11"
+      }
+    },
+    "__schema16": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "__schema17": {
+      "type": "string",
+      "enum": [
+        "deterministic",
+        "llm",
+        "retrieval",
+        "agentic"
+      ]
+    },
+    "__schema18": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "configuration_digest": {
+          "$ref": "#/$defs/__schema6"
+        },
+        "parameters": {
+          "$ref": "#/$defs/__schema15"
+        }
+      },
+      "required": [
+        "provider"
+      ],
+      "additionalProperties": false
+    },
+    "__schema19": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$",
+      "description": "ISO 8601 UTC timestamp ending in Z"
+    },
+    "__schema20": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/__schema19"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "x-zod-runtime-refinements": [
+    "pending/running/succeeded/failed require executor_key, definition_digest, and validated_input",
+    "terminal statuses require completed_at; pending/running forbid it",
+    "succeeded requires output, failed requires error, invalid/blocked require rejection_reason",
+    "succeeded requires a valid output-stage validation result",
+    "completed_at must not be earlier than started_at"
+  ]
+}

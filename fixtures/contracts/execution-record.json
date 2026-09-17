@@ -1,0 +1,41 @@
+{
+  "execution_id": "execution_contract_fixture_001",
+  "asset_id": "asset_contract_fixture",
+  "asset_version_id": "av_contract_fixture_1_0_0",
+  "asset_version": "1.0.0",
+  "executor_key": "fixture.echo",
+  "definition_digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+  "purpose": "prepublication_test",
+  "scenario_label": "Contract fixture run",
+  "status": "succeeded",
+  "validated_input": {
+    "message": "Synthetic input"
+  },
+  "output": {
+    "message": "Synthetic output"
+  },
+  "validation_results": [
+    {
+      "stage": "input",
+      "valid": true,
+      "code": "schema_valid",
+      "message": "The input matched the declared schema."
+    },
+    {
+      "stage": "output",
+      "valid": true,
+      "code": "schema_valid",
+      "message": "The output matched the declared schema."
+    }
+  ],
+  "execution_mode": "deterministic",
+  "model_or_config": {
+    "provider": "local",
+    "configuration_digest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+    "parameters": {
+      "fixture": true
+    }
+  },
+  "started_at": "2026-09-16T10:00:00Z",
+  "completed_at": "2026-09-16T10:00:01Z"
+}

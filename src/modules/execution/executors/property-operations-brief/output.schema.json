@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title",
+    "summary",
+    "review_questions"
+  ],
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

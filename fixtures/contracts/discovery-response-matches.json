@@ -1,0 +1,38 @@
+{
+  "query_id": "query_contract_fixture_001",
+  "mode": "deterministic",
+  "interpreted_intent": {
+    "intents": [
+      {
+        "goal": "structure operational observations",
+        "domain": "property operations",
+        "desired_output": "review-ready brief",
+        "constraints": [
+          "human verification required"
+        ]
+      }
+    ]
+  },
+  "fallback_used": false,
+  "status": "matches",
+  "guardrail": {
+    "triggered": false
+  },
+  "candidates": [
+    {
+      "asset_id": "asset_contract_fixture",
+      "asset_version_id": "av_contract_fixture_1_0_0",
+      "version": "1.0.0",
+      "match_band": "strong_match",
+      "ranking_score_internal": 0.91,
+      "scoring_method": "deterministic metadata overlap",
+      "matched_fields": [
+        "capabilities",
+        "domains"
+      ],
+      "rationale": [
+        "The requested output and domain match the fixture metadata."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://realpage.local/ai-marketplace/contracts/asset.schema.json",
+  "title": "Asset",
+  "type": "object",
+  "properties": {
+    "asset_id": {
+      "$ref": "#/$defs/__schema0"
+    },
+    "slug": {
+      "$ref": "#/$defs/__schema1"
+    },
+    "current_published_version_id": {
+      "$ref": "#/$defs/__schema2"
+    },
+    "created_at": {
+      "$ref": "#/$defs/__schema3"
+    },
+    "updated_at": {
+      "$ref": "#/$defs/__schema3"
+    }
+  },
+  "required": [
+    "asset_id",
+    "slug",
+    "created_at",
+    "updated_at"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "pattern": "^asset_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Stable asset identifier"
+    },
+    "__schema1": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "__schema2": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^av_[a-z0-9]+(?:_[a-z0-9]+)*$",
+          "description": "Immutable asset-version identifier"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "__schema3": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$",
+      "description": "ISO 8601 UTC timestamp ending in Z"
+    }
+  },
+  "x-zod-runtime-refinements": [
+    "updated_at must not be earlier than created_at"
+  ]
+}

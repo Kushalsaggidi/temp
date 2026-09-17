@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "executor_key": "contract.example",
+  "implementation_version": "0.1.0",
+  "implementation_digest": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+  "input_schema_digest": "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+  "output_schema_digest": "sha256:6666666666666666666666666666666666666666666666666666666666666666",
+  "behavior_config_digest": null
+}

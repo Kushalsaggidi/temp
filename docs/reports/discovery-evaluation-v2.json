@@ -1,0 +1,277 @@
+{
+  "evaluation_set_version": "discovery-set-v2",
+  "cases": [
+    {
+      "case_id": "exact-capability",
+      "expected_outcome": "matches",
+      "actual_outcome": "matches",
+      "expected_top_1_asset_id": "asset_capex_intake",
+      "actual_top_1_asset_id": "asset_resident_comms",
+      "acceptable_asset_ids": [
+        "asset_capex_intake",
+        "asset_energy_review",
+        "asset_lease_abstract",
+        "asset_portfolio_review",
+        "asset_resident_comms",
+        "asset_service_recovery",
+        "asset_turnover_readiness",
+        "asset_vendor_scope"
+      ],
+      "actual_candidate_asset_ids": [
+        "asset_resident_comms",
+        "asset_turnover_readiness",
+        "asset_vendor_scope",
+        "asset_capex_intake",
+        "asset_energy_review"
+      ],
+      "status_pass": true,
+      "top_1_pass": false,
+      "top_k_pass": true,
+      "pass": false
+    },
+    {
+      "case_id": "natural-language",
+      "expected_outcome": "matches",
+      "actual_outcome": "matches",
+      "expected_top_1_asset_id": "asset_turnover_readiness",
+      "actual_top_1_asset_id": "asset_turnover_readiness",
+      "acceptable_asset_ids": [
+        "asset_turnover_readiness",
+        "asset_vendor_scope"
+      ],
+      "actual_candidate_asset_ids": [
+        "asset_turnover_readiness",
+        "asset_vendor_scope",
+        "asset_resident_comms",
+        "asset_service_recovery",
+        "asset_energy_review"
+      ],
+      "status_pass": true,
+      "top_1_pass": true,
+      "top_k_pass": true,
+      "pass": true
+    },
+    {
+      "case_id": "unseen-paraphrase",
+      "expected_outcome": "matches",
+      "actual_outcome": "matches",
+      "expected_top_1_asset_id": "asset_capex_intake",
+      "actual_top_1_asset_id": "asset_energy_review",
+      "acceptable_asset_ids": [
+        "asset_capex_intake",
+        "asset_energy_review",
+        "asset_lease_abstract",
+        "asset_portfolio_review",
+        "asset_resident_comms",
+        "asset_service_recovery",
+        "asset_turnover_readiness",
+        "asset_vendor_scope"
+      ],
+      "actual_candidate_asset_ids": [
+        "asset_energy_review",
+        "asset_portfolio_review",
+        "asset_capex_intake",
+        "asset_lease_abstract",
+        "asset_resident_comms"
+      ],
+      "status_pass": true,
+      "top_1_pass": false,
+      "top_k_pass": true,
+      "pass": false
+    },
+    {
+      "case_id": "synonym",
+      "expected_outcome": "matches",
+      "actual_outcome": "matches",
+      "expected_top_1_asset_id": "asset_resident_comms",
+      "actual_top_1_asset_id": "asset_resident_comms",
+      "acceptable_asset_ids": [
+        "asset_resident_comms"
+      ],
+      "actual_candidate_asset_ids": [
+        "asset_resident_comms"
+      ],
+      "status_pass": true,
+      "top_1_pass": true,
+      "top_k_pass": true,
+      "pass": true
+    },
+    {
+      "case_id": "broad",
+      "expected_outcome": "clarification_required",
+      "actual_outcome": "clarification_required",
+      "expected_top_1_asset_id": null,
+      "actual_top_1_asset_id": null,
+      "acceptable_asset_ids": [],
+      "actual_candidate_asset_ids": [],
+      "status_pass": true,
+      "top_1_pass": null,
+      "top_k_pass": null,
+      "pass": true
+    },
+    {
+      "case_id": "ambiguous",
+      "expected_outcome": "clarification_required",
+      "actual_outcome": "clarification_required",
+      "expected_top_1_asset_id": null,
+      "actual_top_1_asset_id": null,
+      "acceptable_asset_ids": [],
+      "actual_candidate_asset_ids": [],
+      "status_pass": true,
+      "top_1_pass": null,
+      "top_k_pass": null,
+      "pass": true
+    },
+    {
+      "case_id": "multi-intent",
+      "expected_outcome": "clarification_required",
+      "actual_outcome": "clarification_required",
+      "expected_top_1_asset_id": null,
+      "actual_top_1_asset_id": null,
+      "acceptable_asset_ids": [],
+      "actual_candidate_asset_ids": [],
+      "status_pass": true,
+      "top_1_pass": null,
+      "top_k_pass": null,
+      "pass": true
+    },
+    {
+      "case_id": "no-match",
+      "expected_outcome": "no_match",
+      "actual_outcome": "no_match",
+      "expected_top_1_asset_id": null,
+      "actual_top_1_asset_id": null,
+      "acceptable_asset_ids": [],
+      "actual_candidate_asset_ids": [],
+      "status_pass": true,
+      "top_1_pass": null,
+      "top_k_pass": null,
+      "pass": true
+    },
+    {
+      "case_id": "irrelevant",
+      "expected_outcome": "no_match",
+      "actual_outcome": "no_match",
+      "expected_top_1_asset_id": null,
+      "actual_top_1_asset_id": null,
+      "acceptable_asset_ids": [],
+      "actual_candidate_asset_ids": [],
+      "status_pass": true,
+      "top_1_pass": null,
+      "top_k_pass": null,
+      "pass": true
+    },
+    {
+      "case_id": "high-impact",
+      "expected_outcome": "guardrail",
+      "actual_outcome": "guardrail",
+      "expected_top_1_asset_id": null,
+      "actual_top_1_asset_id": null,
+      "acceptable_asset_ids": [],
+      "actual_candidate_asset_ids": [],
+      "status_pass": true,
+      "top_1_pass": null,
+      "top_k_pass": null,
+      "pass": true
+    },
+    {
+      "case_id": "unsupported-assumption",
+      "expected_outcome": "guardrail",
+      "actual_outcome": "guardrail",
+      "expected_top_1_asset_id": null,
+      "actual_top_1_asset_id": null,
+      "acceptable_asset_ids": [],
+      "actual_candidate_asset_ids": [],
+      "status_pass": true,
+      "top_1_pass": null,
+      "top_k_pass": null,
+      "pass": true
+    },
+    {
+      "case_id": "multiple-plausible",
+      "expected_outcome": "matches",
+      "actual_outcome": "matches",
+      "expected_top_1_asset_id": "asset_capex_intake",
+      "actual_top_1_asset_id": "asset_energy_review",
+      "acceptable_asset_ids": [
+        "asset_capex_intake",
+        "asset_energy_review",
+        "asset_lease_abstract",
+        "asset_portfolio_review",
+        "asset_resident_comms",
+        "asset_service_recovery",
+        "asset_turnover_readiness",
+        "asset_vendor_scope"
+      ],
+      "actual_candidate_asset_ids": [
+        "asset_energy_review",
+        "asset_portfolio_review",
+        "asset_capex_intake",
+        "asset_lease_abstract",
+        "asset_resident_comms"
+      ],
+      "status_pass": true,
+      "top_1_pass": false,
+      "top_k_pass": true,
+      "pass": false
+    },
+    {
+      "case_id": "malformed",
+      "expected_outcome": "invalid_request",
+      "actual_outcome": "invalid_request",
+      "expected_top_1_asset_id": null,
+      "actual_top_1_asset_id": null,
+      "acceptable_asset_ids": [],
+      "actual_candidate_asset_ids": [],
+      "status_pass": true,
+      "top_1_pass": null,
+      "top_k_pass": null,
+      "pass": true
+    }
+  ],
+  "provider": "none",
+  "model_id": "not_applicable",
+  "ai_enhancement_enabled": false,
+  "ai_enhancement_reason": "Deterministic discovery is complete and verified.",
+  "configuration": {
+    "match_threshold": 0.12,
+    "max_candidates": 5,
+    "normalization": "src/modules/discovery/normalization.ts",
+    "ranking": "src/modules/discovery/retrieval.ts"
+  },
+  "timestamp": "2026-09-16T16:53:22.447Z",
+  "command": "npm.cmd run evaluate:discovery",
+  "commit_sha": null,
+  "limitations": [
+    "Small, curated evaluation set; these results are not production accuracy.",
+    "The evaluation uses event-created canonical published fixtures, not production traffic.",
+    "The canonical hero remains a draft and is correctly excluded from normal discovery."
+  ],
+  "failures_and_observations": [
+    "exact-capability: expected top-1 asset_capex_intake, received asset_resident_comms",
+    "unseen-paraphrase: expected top-1 asset_capex_intake, received asset_energy_review",
+    "multiple-plausible: expected top-1 asset_capex_intake, received asset_energy_review"
+  ],
+  "aggregates": {
+    "top_1_result": {
+      "numerator": 2,
+      "denominator": 5
+    },
+    "acceptable_top_k": {
+      "numerator": 5,
+      "denominator": 5
+    },
+    "correct_clarification": {
+      "numerator": 3,
+      "denominator": 3
+    },
+    "correct_no_match": {
+      "numerator": 2,
+      "denominator": 2
+    },
+    "correct_guardrail": {
+      "numerator": 2,
+      "denominator": 2
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "realpage-ai-marketplace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "packageManager": "npm@11.19.0",
+  "description": "Hackathon-sized RealPage AI Marketplace modular monolith",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run contracts:check && next build",
+    "start": "next start",
+    "typecheck": "next typegen && tsc --noEmit",
+    "contracts:generate": "tsx scripts/contracts/generate.ts",
+    "contracts:check": "tsx scripts/contracts/check.ts",
+    "db:migrate": "tsx scripts/db/migrate.ts",
+    "db:seed": "tsx scripts/db/seed.ts",
+    "db:reset": "tsx scripts/db/reset.ts",
+    "test": "vitest run",
+    "evaluate:discovery": "vitest run --config vitest.evaluation.config.ts",
+    "operator:ask": "tsx --env-file-if-exists=.env scripts/operator/ask.ts",
+    "test:watch": "vitest",
+    "verify": "npm run typecheck && npm run contracts:check && npm test && npm run build"
+  },
+  "dependencies": {
+    "ajv": "^8.18.0",
+    "next": "^16.3.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  }
+}

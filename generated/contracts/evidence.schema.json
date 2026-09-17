@@ -1,0 +1,338 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://realpage.local/ai-marketplace/contracts/evidence.schema.json",
+  "title": "Evidence",
+  "type": "object",
+  "properties": {
+    "evidence_id": {
+      "$ref": "#/$defs/__schema0"
+    },
+    "asset_id": {
+      "$ref": "#/$defs/__schema1"
+    },
+    "asset_version_id": {
+      "$ref": "#/$defs/__schema2"
+    },
+    "subject_digest": {
+      "$ref": "#/$defs/__schema3"
+    },
+    "evidence_type": {
+      "$ref": "#/$defs/__schema4"
+    },
+    "scope": {
+      "$ref": "#/$defs/__schema5"
+    },
+    "expected": {
+      "$ref": "#/$defs/__schema6"
+    },
+    "observed": {
+      "$ref": "#/$defs/__schema7"
+    },
+    "result": {
+      "$ref": "#/$defs/__schema8"
+    },
+    "actor_type": {
+      "$ref": "#/$defs/__schema9"
+    },
+    "actor_name": {
+      "$ref": "#/$defs/__schema10"
+    },
+    "reviewer": {
+      "$ref": "#/$defs/__schema11"
+    },
+    "timestamp": {
+      "$ref": "#/$defs/__schema12"
+    },
+    "method": {
+      "$ref": "#/$defs/__schema13"
+    },
+    "scenario": {
+      "$ref": "#/$defs/__schema14"
+    },
+    "execution_ids": {
+      "$ref": "#/$defs/__schema15"
+    },
+    "artifact_reference": {
+      "$ref": "#/$defs/__schema16"
+    },
+    "artifact_version": {
+      "$ref": "#/$defs/__schema17"
+    },
+    "commit_sha": {
+      "$ref": "#/$defs/__schema18"
+    },
+    "model_or_config": {
+      "$ref": "#/$defs/__schema19"
+    },
+    "details": {
+      "$ref": "#/$defs/__schema21"
+    },
+    "limitations": {
+      "$ref": "#/$defs/__schema22"
+    }
+  },
+  "required": [
+    "evidence_id",
+    "asset_id",
+    "asset_version_id",
+    "subject_digest",
+    "evidence_type",
+    "scope",
+    "observed",
+    "result",
+    "actor_type",
+    "timestamp",
+    "method",
+    "execution_ids",
+    "artifact_version",
+    "details",
+    "limitations"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "pattern": "^evidence_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Evidence identifier"
+    },
+    "__schema1": {
+      "type": "string",
+      "pattern": "^asset_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Stable asset identifier"
+    },
+    "__schema2": {
+      "type": "string",
+      "pattern": "^av_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Immutable asset-version identifier"
+    },
+    "__schema3": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "__schema4": {
+      "type": "string",
+      "enum": [
+        "metadata_validation",
+        "functional_test",
+        "guardrail_test",
+        "reuse_test",
+        "human_review",
+        "security_review",
+        "source_permission"
+      ]
+    },
+    "__schema5": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "__schema6": {
+      "$ref": "#/$defs/__schema7"
+    },
+    "__schema7": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema7"
+          }
+        },
+        {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/__schema7"
+          }
+        }
+      ]
+    },
+    "__schema8": {
+      "type": "string",
+      "enum": [
+        "passed",
+        "failed",
+        "needs_changes",
+        "informational",
+        "not_applicable"
+      ]
+    },
+    "__schema9": {
+      "type": "string",
+      "enum": [
+        "system",
+        "team_member",
+        "demo_reviewer"
+      ]
+    },
+    "__schema10": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "__schema11": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "organization": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "__schema12": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$",
+      "description": "ISO 8601 UTC timestamp ending in Z"
+    },
+    "__schema13": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "__schema14": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "__schema15": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^execution_[a-z0-9]+(?:_[a-z0-9]+)*$",
+        "description": "Execution identifier"
+      }
+    },
+    "__schema16": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "__schema17": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[A-Za-z-][0-9A-Za-z-]*))*))?(?:\\+([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?$"
+    },
+    "__schema18": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{7,64}$"
+    },
+    "__schema19": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "configuration_digest": {
+          "$ref": "#/$defs/__schema3"
+        },
+        "parameters": {
+          "$ref": "#/$defs/__schema20"
+        }
+      },
+      "required": [
+        "provider"
+      ],
+      "additionalProperties": false
+    },
+    "__schema20": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema7"
+      }
+    },
+    "__schema21": {
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "assertions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "passed": {
+                "type": "boolean"
+              },
+              "observed": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              }
+            },
+            "required": [
+              "name",
+              "passed"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "data": {
+          "$ref": "#/$defs/__schema20"
+        }
+      },
+      "required": [
+        "summary",
+        "assertions"
+      ],
+      "additionalProperties": false
+    },
+    "__schema22": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1000
+      }
+    }
+  },
+  "x-zod-runtime-refinements": [
+    "system evidence forbids actor_name; demo_reviewer evidence requires reviewer",
+    "human_review requires a human actor; passed security_review requires reviewer details"
+  ]
+}

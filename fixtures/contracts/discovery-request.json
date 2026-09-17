@@ -1,0 +1,12 @@
+{
+  "query": "Find a reusable way to turn operational observations into a short review brief.",
+  "optional_context": {
+    "audience": "regional operations reviewer",
+    "domain": "property operations",
+    "desired_output": "review-ready brief",
+    "constraints": [
+      "synthetic data only",
+      "human verification required"
+    ]
+  }
+}

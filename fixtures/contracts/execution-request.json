@@ -1,0 +1,7 @@
+{
+  "asset_version_id": "av_contract_fixture_1_0_0",
+  "scenario_label": "Contract fixture run",
+  "input": {
+    "message": "Synthetic input"
+  }
+}

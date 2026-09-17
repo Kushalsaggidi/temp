@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "executor_key": "property_ops.brief_builder",
+  "implementation_version": "1.0.0",
+  "implementation_digest": "sha256:d0c6bfd4c91b5aac42498776e7a21c637fc002cecb7be5b077c93e11a2380a48",
+  "input_schema_digest": "sha256:1ea2c4a2ac571e06a4015fda17850a541fe56d944bedff2c54d4b8c5d5b27a9c",
+  "output_schema_digest": "sha256:ebdf884e00491981a027de4416ffe557224dc49cf2a86db412a795d248f04577",
+  "behavior_config_digest": "sha256:1b64e4a524b8edcae835069faed5fd73546cb4c7c45afa44f384433ea864dac9"
+}

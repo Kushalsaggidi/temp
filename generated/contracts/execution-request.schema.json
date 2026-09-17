@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://realpage.local/ai-marketplace/contracts/execution-request.schema.json",
+  "title": "Execution Request",
+  "type": "object",
+  "properties": {
+    "asset_version_id": {
+      "type": "string",
+      "pattern": "^av_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Immutable asset-version identifier"
+    },
+    "scenario_label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "input": {
+      "$ref": "#/$defs/__schema0"
+    }
+  },
+  "required": [
+    "asset_version_id",
+    "input"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema0"
+          }
+        },
+        {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/__schema0"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://realpage.local/ai-marketplace/contracts/lifecycle-event.schema.json",
+  "title": "Lifecycle Event",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "$ref": "#/$defs/__schema0"
+    },
+    "asset_id": {
+      "$ref": "#/$defs/__schema1"
+    },
+    "asset_version_id": {
+      "$ref": "#/$defs/__schema2"
+    },
+    "from_state": {
+      "$ref": "#/$defs/__schema3"
+    },
+    "to_state": {
+      "$ref": "#/$defs/__schema4"
+    },
+    "actor_type": {
+      "$ref": "#/$defs/__schema5"
+    },
+    "actor_name": {
+      "$ref": "#/$defs/__schema6"
+    },
+    "reason": {
+      "$ref": "#/$defs/__schema7"
+    },
+    "evidence_ids": {
+      "$ref": "#/$defs/__schema8"
+    },
+    "timestamp": {
+      "$ref": "#/$defs/__schema9"
+    }
+  },
+  "required": [
+    "event_id",
+    "asset_id",
+    "asset_version_id",
+    "to_state",
+    "actor_type",
+    "reason",
+    "evidence_ids",
+    "timestamp"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "pattern": "^event_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Lifecycle event identifier"
+    },
+    "__schema1": {
+      "type": "string",
+      "pattern": "^asset_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Stable asset identifier"
+    },
+    "__schema2": {
+      "type": "string",
+      "pattern": "^av_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Immutable asset-version identifier"
+    },
+    "__schema3": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/__schema4"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "__schema4": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "in_review",
+        "changes_requested",
+        "published",
+        "deprecated"
+      ]
+    },
+    "__schema5": {
+      "type": "string",
+      "enum": [
+        "system",
+        "team_member",
+        "demo_reviewer"
+      ]
+    },
+    "__schema6": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "__schema7": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "__schema8": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^evidence_[a-z0-9]+(?:_[a-z0-9]+)*$",
+        "description": "Evidence identifier"
+      }
+    },
+    "__schema9": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$",
+      "description": "ISO 8601 UTC timestamp ending in Z"
+    }
+  },
+  "x-zod-runtime-refinements": [
+    "from_state, when present, must differ from to_state",
+    "system events forbid actor_name"
+  ]
+}

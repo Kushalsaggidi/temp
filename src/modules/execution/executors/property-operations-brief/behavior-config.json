@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "human_verification_question_template": "Has a knowledgeable human verified every supplied observation and constraint for {audience}?",
+  "observation_review_question_template": "What source should a human verify for this supplied observation: {observation}",
+  "constraint_review_question_template": "What must the human reviewer confirm to honor this supplied constraint exactly: {constraint}",
+  "limitations": [
+    "This brief uses only supplied synthetic observations and does not establish production facts.",
+    "A knowledgeable human must verify every observation, constraint, and resulting brief before use.",
+    "This executor does not make or automate resident, employee, vendor, legal, financial, or production decisions or actions."
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "evaluation_set_version": "discovery-set-v1",
+  "cases": [
+    {
+      "case_id": "exact-capability",
+      "expected_outcome": "matches",
+      "actual_outcome": "matches",
+      "pass": true
+    },
+    {
+      "case_id": "natural-language",
+      "expected_outcome": "matches",
+      "actual_outcome": "matches",
+      "pass": true
+    },
+    {
+      "case_id": "unseen-paraphrase",
+      "expected_outcome": "matches",
+      "actual_outcome": "matches",
+      "pass": true
+    },
+    {
+      "case_id": "synonym",
+      "expected_outcome": "matches",
+      "actual_outcome": "matches",
+      "pass": true
+    },
+    {
+      "case_id": "broad",
+      "expected_outcome": "clarification_required",
+      "actual_outcome": "clarification_required",
+      "pass": true
+    },
+    {
+      "case_id": "ambiguous",
+      "expected_outcome": "clarification_required",
+      "actual_outcome": "clarification_required",
+      "pass": true
+    },
+    {
+      "case_id": "multi-intent",
+      "expected_outcome": "clarification_required",
+      "actual_outcome": "clarification_required",
+      "pass": true
+    },
+    {
+      "case_id": "no-match",
+      "expected_outcome": "no_match",
+      "actual_outcome": "no_match",
+      "pass": true
+    },
+    {
+      "case_id": "irrelevant",
+      "expected_outcome": "no_match",
+      "actual_outcome": "no_match",
+      "pass": true
+    },
+    {
+      "case_id": "high-impact",
+      "expected_outcome": "guardrail",
+      "actual_outcome": "guardrail",
+      "pass": true
+    },
+    {
+      "case_id": "unsupported-assumption",
+      "expected_outcome": "guardrail",
+      "actual_outcome": "guardrail",
+      "pass": true
+    },
+    {
+      "case_id": "multiple-plausible",
+      "expected_outcome": "matches",
+      "actual_outcome": "matches",
+      "pass": true
+    },
+    {
+      "case_id": "malformed",
+      "expected_outcome": "invalid_request",
+      "actual_outcome": "invalid_request",
+      "pass": true
+    }
+  ],
+  "provider": "none",
+  "model_id": null,
+  "ai_enhancement_enabled": false,
+  "configuration": {
+    "threshold": 0.09,
+    "max_candidates": 5,
+    "normalization": "src/modules/discovery/normalization.ts"
+  },
+  "timestamp": "2026-09-16T14:18:55.720Z",
+  "command": "npm.cmd run evaluate:discovery",
+  "commit_sha": null,
+  "limitations": [
+    "Small, curated evaluation set; results are not production accuracy.",
+    "The current canonical hero remains a draft and is therefore correctly excluded from normal discovery."
+  ],
+  "aggregates": {
+    "top_1_result": {
+      "numerator": 5,
+      "denominator": 5
+    },
+    "acceptable_top_k": {
+      "numerator": 5,
+      "denominator": 5
+    },
+    "correct_clarification": {
+      "numerator": 3,
+      "denominator": 3
+    },
+    "correct_no_match": {
+      "numerator": 2,
+      "denominator": 2
+    },
+    "correct_guardrail": {
+      "numerator": 2,
+      "denominator": 2
+    }
+  }
+}

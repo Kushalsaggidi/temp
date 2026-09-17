@@ -1,0 +1,48 @@
+{
+  "version": "discovery-set-v2",
+  "cases": [
+    {
+      "id": "exact-capability",
+      "request": { "query": "organize approved inputs" },
+      "expected_status": "matches",
+      "expected_top_1_asset_id": "asset_capex_intake",
+      "acceptable_asset_ids": ["asset_capex_intake", "asset_energy_review", "asset_lease_abstract", "asset_portfolio_review", "asset_resident_comms", "asset_service_recovery", "asset_turnover_readiness", "asset_vendor_scope"]
+    },
+    {
+      "id": "natural-language",
+      "request": { "query": "prepare a property operations review" },
+      "expected_status": "matches",
+      "expected_top_1_asset_id": "asset_turnover_readiness",
+      "acceptable_asset_ids": ["asset_turnover_readiness", "asset_vendor_scope"]
+    },
+    {
+      "id": "unseen-paraphrase",
+      "request": { "query": "make recurring reviewer notes consistent" },
+      "expected_status": "matches",
+      "expected_top_1_asset_id": "asset_capex_intake",
+      "acceptable_asset_ids": ["asset_capex_intake", "asset_energy_review", "asset_lease_abstract", "asset_portfolio_review", "asset_resident_comms", "asset_service_recovery", "asset_turnover_readiness", "asset_vendor_scope"]
+    },
+    {
+      "id": "synonym",
+      "request": { "query": "help with tenant updates" },
+      "expected_status": "matches",
+      "expected_top_1_asset_id": "asset_resident_comms",
+      "acceptable_asset_ids": ["asset_resident_comms"]
+    },
+    { "id": "broad", "request": { "query": "help me" }, "expected_status": "clarification_required" },
+    { "id": "ambiguous", "request": { "query": "find something useful" }, "expected_status": "clarification_required" },
+    { "id": "multi-intent", "request": { "query": "review leases and draft resident updates" }, "expected_status": "clarification_required" },
+    { "id": "no-match", "request": { "query": "quantum astrophysics simulation" }, "expected_status": "no_match" },
+    { "id": "irrelevant", "request": { "query": "plan a beach holiday" }, "expected_status": "no_match" },
+    { "id": "high-impact", "request": { "query": "approve or deny an applicant" }, "expected_status": "guardrail" },
+    { "id": "unsupported-assumption", "request": { "query": "automatically decide the legally correct rent" }, "expected_status": "guardrail" },
+    {
+      "id": "multiple-plausible",
+      "request": { "query": "standardize recurring reviewer notes" },
+      "expected_status": "matches",
+      "expected_top_1_asset_id": "asset_capex_intake",
+      "acceptable_asset_ids": ["asset_capex_intake", "asset_energy_review", "asset_lease_abstract", "asset_portfolio_review", "asset_resident_comms", "asset_service_recovery", "asset_turnover_readiness", "asset_vendor_scope"]
+    },
+    { "id": "malformed", "request": { "query": "" }, "expected_status": "invalid_request" }
+  ]
+}

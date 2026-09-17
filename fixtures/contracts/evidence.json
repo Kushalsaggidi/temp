@@ -1,0 +1,47 @@
+{
+  "evidence_id": "evidence_contract_fixture_001",
+  "asset_id": "asset_contract_fixture",
+  "asset_version_id": "av_contract_fixture_1_0_0",
+  "subject_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "evidence_type": "functional_test",
+  "scope": "Contract-only synthetic example",
+  "expected": {
+    "message": "Synthetic output"
+  },
+  "observed": {
+    "message": "Synthetic output"
+  },
+  "result": "informational",
+  "actor_type": "system",
+  "timestamp": "2026-09-16T10:00:02Z",
+  "method": "Parsed a synthetic execution record with the executable contract.",
+  "scenario": "Contract fixture run",
+  "execution_ids": [
+    "execution_contract_fixture_001"
+  ],
+  "artifact_reference": "fixtures/contracts/execution-record.json",
+  "artifact_version": "1.0.0",
+  "model_or_config": {
+    "provider": "local",
+    "configuration_digest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+    "parameters": {
+      "fixture": true
+    }
+  },
+  "details": {
+    "summary": "Synthetic contract fixture; not publication evidence.",
+    "assertions": [
+      {
+        "name": "output schema",
+        "passed": false,
+        "observed": "Example-only assertion; no test run or publication gate is claimed."
+      }
+    ],
+    "data": {
+      "fixture_only": true
+    }
+  },
+  "limitations": [
+    "This fixture demonstrates shape validation only and is not evidence for a catalog asset."
+  ]
+}

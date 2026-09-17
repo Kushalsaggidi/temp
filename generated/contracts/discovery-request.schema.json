@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://realpage.local/ai-marketplace/contracts/discovery-request.schema.json",
+  "title": "Discovery Request",
+  "type": "object",
+  "properties": {
+    "query": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "optional_context": {
+      "type": "object",
+      "properties": {
+        "audience": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "domain": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "desired_output": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "constraints": {
+          "maxItems": 20,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema0"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "query"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    }
+  }
+}

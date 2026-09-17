@@ -1,0 +1,11 @@
+{
+  "event_id": "event_bootstrap_draft_created",
+  "asset_id": "asset_property_ops_brief",
+  "asset_version_id": "av_property_ops_brief_0_1_0_draft_1",
+  "from_state": null,
+  "to_state": "draft",
+  "actor_type": "system",
+  "reason": "Created the schema-valid bootstrap draft for the administrative vertical slice.",
+  "evidence_ids": [],
+  "timestamp": "2026-09-16T09:00:00Z"
+}

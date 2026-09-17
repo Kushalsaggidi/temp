@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://realpage.local/ai-marketplace/contracts/json-schema-document.schema.json",
+  "title": "Json Schema Document",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "$ref": "#/$defs/__schema0"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/__schema1"
+            },
+            {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/__schema1"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "$schema",
+        "type"
+      ],
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema2"
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "$ref": "#/$defs/__schema0"
+        },
+        "$ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "$schema",
+        "$ref"
+      ],
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema2"
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "$ref": "#/$defs/__schema0"
+        },
+        "oneOf": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema2"
+          }
+        }
+      },
+      "required": [
+        "$schema",
+        "oneOf"
+      ],
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema2"
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "$ref": "#/$defs/__schema0"
+        },
+        "anyOf": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema2"
+          }
+        }
+      },
+      "required": [
+        "$schema",
+        "anyOf"
+      ],
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema2"
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "$ref": "#/$defs/__schema0"
+        },
+        "allOf": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema2"
+          }
+        }
+      },
+      "required": [
+        "$schema",
+        "allOf"
+      ],
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema2"
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "$ref": "#/$defs/__schema0"
+        },
+        "const": {
+          "$ref": "#/$defs/__schema2"
+        }
+      },
+      "required": [
+        "$schema",
+        "const"
+      ],
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema2"
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "$ref": "#/$defs/__schema0"
+        },
+        "enum": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema2"
+          }
+        }
+      },
+      "required": [
+        "$schema",
+        "enum"
+      ],
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema2"
+      }
+    }
+  ],
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "__schema1": {
+      "type": "string",
+      "enum": [
+        "null",
+        "boolean",
+        "object",
+        "array",
+        "number",
+        "string",
+        "integer"
+      ]
+    },
+    "__schema2": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema2"
+          }
+        },
+        {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/__schema2"
+          }
+        }
+      ]
+    }
+  }
+}
