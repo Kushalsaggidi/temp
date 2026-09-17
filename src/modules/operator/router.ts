@@ -215,7 +215,7 @@ const RULES: Rule[] = [
     tool: "createAsset",
     intent: "create asset",
     pattern:
-      /\b(create (a|an|new)|contribute|i want to (add|build|contribute|create)|new (agent|asset|skill|workflow|template)|add (a|an) (new )?(agent|asset)|register (a|an))\b/i,
+      /\b(create (a|an|new)|contribute|i want to (add|build|contribute|create)|new (agent|asset|skill|workflow|template)|add (a|an) (new )?(agent|asset)|register (a|an)|make (me )?(a|an)|build (me )?(a|an))\b/i,
     interpretation: () => "Started the contribution workflow.",
   },
   {

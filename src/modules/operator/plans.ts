@@ -184,6 +184,7 @@ const STOP_WORDS = new Set([
   "add",
   "register",
   "build",
+  "make",
   "new",
   "and",
   "then",
